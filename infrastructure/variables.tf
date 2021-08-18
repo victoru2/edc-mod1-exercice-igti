@@ -13,12 +13,3 @@ variable "numero_conta" {
 variable "base_bucket_name" {
   default = "datalake-igti-tf"
 }
-
-# Centralizar o arquivo de controle de estado do terraform
-terraform {
-  backend "s3" {
-    bucket = "terraform-state-igti-victorurquiola"
-    key    = "state/igti/edc/mod1/terraform.tfstate"
-    region = "us-east-2"
-  }
-}
