@@ -4,7 +4,7 @@ resource "aws_glue_crawler" "stream" {
   role          = "AWSGlueServiceRole-testegti"
 
   s3_target {
-    path = "s3://${aws_s3_bucket.stream.bucket}/firehose/"
+    path = "s3://${aws_s3_bucket.stream.bucket}/silver-data/"
   }
 
   configuration = <<EOF
