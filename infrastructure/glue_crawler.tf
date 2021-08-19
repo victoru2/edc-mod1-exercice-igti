@@ -1,9 +1,5 @@
-resource "aws_glue_catalog_database" "stream" {
-  name = "datalakeathena"
-}
-
 resource "aws_glue_crawler" "stream" {
-  database_name = aws_glue_catalog_database.stream.name
+  database_name = "datalakeathena"
   name          = "firehose_stream_s3_crawler"
   role          = "AWSGlueServiceRole-testegti"
 
