@@ -9,4 +9,4 @@ for root, dirs, files in os.walk(base):
     for file in files:
         archivos=os.path.join(root,file)
         if regex.search(archivos):
-            s3.upload_file(archivos, BUCKET_NAME,'raw-data/'+file)
+            s3.upload_file(archivos, 'datalake-victorurquiola-451395640202','raw-data/'+file)

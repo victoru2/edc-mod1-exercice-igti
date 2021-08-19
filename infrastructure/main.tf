@@ -17,6 +17,24 @@ resource "aws_s3_bucket" "datalake" {
   }
 }
 
+resource "aws_s3_bucket" "stream" {
+  bucket = "datalake-victorurquiola-451395640202"
+  acl    = "private"
+
+  tags = {
+    IES   = "IGTI",
+    CURSO = "EDC"
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+}
+
 resource "aws_s3_bucket_object" "codigo_glue_spark" {
   bucket = aws_s3_bucket.datalake.id
   key    = "glue-code/pyspark/job_spark_from_tf.py"
